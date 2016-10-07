@@ -1,7 +1,9 @@
+import sys, os
 # Append the folder that contains all plugins
 sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 
 from git import Repo
+from itertools import chain
 
 class GitManager:
     """

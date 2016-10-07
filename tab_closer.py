@@ -1,5 +1,6 @@
-import sublime, sublime_plugin, sys, os
-from itertools import chain
+import sublime, sublime_plugin
+
+from SublimeTabCloser.git_manager import GitManager
 
 class TabCloserEventListener(sublime_plugin.EventListener):
     """
@@ -21,7 +22,7 @@ class TabCloserEventListener(sublime_plugin.EventListener):
         # If the git manager has not previsouly been defined, create it.
         if self.git_manager is None:
             project_dir = self.get_project_dir(view)
-            self.git_manager = GitManager(project_dir)
+            self.git_manager = git_manager.GitManager(project_dir)
 
         # Get the git difference
         differences = self.git_manager.get_difference()
