@@ -1,9 +1,8 @@
-from git import Repo
+import sublime, sublime_plugin, sys, os
 from itertools import chain
-import os
 
-# Get the repo
-repo = Repo(os.getcwd())
+# Append the folder that contains all plugins
+sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 
 # Construct the diff that we want to observe.
 diff = repo.commit("HEAD@{1}").diff("HEAD")
