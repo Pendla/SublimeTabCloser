@@ -37,8 +37,6 @@ class TabCloserEventListener(sublime_plugin.EventListener):
         differences = self.git_manager.get_difference()
         for diff in differences:
             for tab in view.window().views():
-                print(tab.file_name())
-                print(diff.a_path)
                 if tab.file_name() is not None and tab.file_name().endswith(diff.a_path):
                     tab.set_scratch(True)
                     tab.close()
